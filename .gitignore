@@ -1,0 +1,26 @@
+# Planning and tooling
+.planning/
+.claude/
+.agents/
+
+# Build artifacts
+obj_dir/
+
+# Presentation slides
+phase_slides/
+AES_extension_slides/
+
+# Reports and papers (local only)
+Thesis_report/
+Thesis_report_opt/
+Internship_report/
+research_paper.tex
+
+# Large log files
+scripts/logs/
+
+# VCD simulation files (large, generated)
+sim/vcd/
+
+# macOS
+.DS_Store

@@ -1,0 +1,83 @@
+% ================================
+% Chapter 1 — Introduction & Motivation (2–page target)
+% Paste after you switch to \pagenumbering{arabic}
+% ================================
+% ==========================================================
+\chapter{Introduction \& Motivation}
+
+\section{Introduction}
+The Advanced Encryption Standard (AES) remains the most widely adopted block cipher in
+modern secure systems, supporting key lengths of 128, 192, and 256 bits. Its suitability for
+hardware stems from a regular round-based structure, enabling efficient implementation on
+FPGA and ASIC platforms. A variety of baseline AES architectures have been developed on
+reconfigurable hardware, demonstrating functional correctness and area–throughput tradeoffs
+\cite{sai_srinivas_fpga_2016, abhijith_high_2013}. Work on compact lookup-table based
+transformations further reduced redundant hardware in S-Box and inverse S-Box circuits
+\cite{rajeswara_rao_fpga_2017}. Systematic FPGA benchmarking environments such as
+\cite{guruprasad2018evaluation} have contributed to consistent evaluation of AES hardware
+cores across platforms.
+
+Despite the algorithm's structural simplicity, conventional AES designs incur considerable
+area and dynamic power due to duplicated round logic, continuous toggling of SubBytes and
+MixColumns units, and the overhead of key schedule expansion. Optimized architectures have
+attempted to address these issues through resource sharing and datapath restructuring.
+Notably, the Virtex-7 optimized AES-256 design reported in 
+\cite{gunasekaran_aes256_virtex7} introduced a unified S-Box/Inv-S-Box structure, a
+word-serial datapath, and a combined MixColumns--AddRoundKey unit, achieving significant
+reductions in hardware footprint. Such improvements align with early efforts to minimize
+resource usage in high-performance FPGA realizations of AES
+\cite{abhijith_high_2013, rajeswara_rao_fpga_2017}.
+
+In recent years, power efficiency has emerged as a key design objective due to the growing
+presence of AES engines in mobile, IoT, and battery-constrained environments. Studies such
+as \cite{feng2021_energy_efficient_aes, ibrahim2021_highspeed_resourceefficient_aes}
+demonstrate that even optimized datapaths can remain power-intensive when active every
+cycle. As a result, selective activation techniques—primarily clock gating—have gained
+traction. Fine-grained asynchronous activation methods proposed in
+\cite{selvapriya2023lowpower} exhibit substantial savings by enabling only the logic
+required in a given cycle. Similarly, gated-datapath approaches in 
+\cite{darwish2022configurable} target MixColumns and SubBytes units to reduce unnecessary 
+switching. Multi-domain gating strategies reported in \cite{lee2021multidomain} further 
+demonstrate that isolating clock domains for S-Box, MixColumns, and KeySchedule blocks can 
+achieve meaningful power reduction.
+
+Direct application of clock gating to AES functional blocks has also been validated through 
+FPGA experiments. In \cite{chodorowski2021_clockgated_aes}, simple gating of non-active
+cycles led to measurable savings in switching power, while pipelined AES designs using
+clock gating on 28 nm technology achieved notable improvements in energy per operation
+\cite{prasanth2021_lowpower_aes_clockgating}. Additional S-Box-centric gating mechanisms 
+have been explored in \cite{subramanian2021_adaptive_clockgated_sbox}, highlighting the 
+benefits of turning off composite-field logic when unused.
+
+Motivated by these developments, this thesis constructs a fully functional baseline AES
+implementation supporting all three key sizes. The primary contribution is a systematic,
+dual-architecture study: a \textbf{full-pipeline AES implementation} and a \textbf{finite
+state machine (FSM) AES implementation} are both developed, characterized at baseline, and
+subjected to two optimization phases. Phase~1 replaces GF multiplication using EXP3 and LN3
+log-table lookups with \textit{xtime} arithmetic~\cite{wolkerstorfer_xtime_2002}, eliminating
+512 table entries from every MixColumns instance across both architectures. Phase~2 introduces
+clock enable guards on FSM state registers to suppress unnecessary switching when the datapath
+is idle. The Virtex-7 AES-256 architecture of \cite{gunasekaran_aes256_virtex7} provides
+structural context for the unified S-Box and combined MixColumns--AddRoundKey design choices
+adopted in the FSM datapath. The pipeline implementation follows the parallel datapath
+approach established in prior work~\cite{good_pipelined_aes_2005}, enabling high throughput
+through unrolled round logic.
+
+
+\section{Motivation}
+
+Modern VLSI and FPGA systems place strict constraints on power consumption, silicon area, and resource utilization. Cryptographic accelerators such as AES are now integrated into a wide range of platforms including communication modules, embedded processors, cloud servers, and edge devices. These systems require secure and high throughput encryption while also maintaining low energy consumption and minimal hardware cost. Conventional AES architectures, although functionally correct, often rely on duplicated S Box hardware, full width datapaths, and continuously active functional units. This leads to considerable dynamic power usage and limits the practicality of deployment in energy constrained systems.
+
+The increasing use of AES 256 further amplifies these challenges due to its larger number of rounds and the additional complexity of the KeySchedule unit. This results in higher switching activity, increased latency, and greater pressure on available FPGA resources. Therefore, there is a strong need for an AES architecture that reduces redundant computation, improves hardware reuse, and manages switching activity intelligently.
+
+Recent research demonstrates that clock gating is one of the most effective techniques for reducing dynamic power in cryptographic hardware. Fine grained gating, as explored in \cite{selvapriya2023lowpower}, selectively activates functional units only when required. Gated datapath techniques reported in \cite{darwish2022configurable} show that disabling MixColumns and SubBytes during idle cycles can produce substantial power savings. Multi domain gating methods in \cite{lee2021multidomain} further validate the potential for controlling switching activity across independent AES components. These works highlight a clear opportunity to improve AES efficiency by combining structural optimizations with targeted power aware design.
+
+In addition, the evaluation framework proposed in \cite{guruprasad2018evaluation} emphasizes the importance of systematic performance analysis for cryptographic hardware. While this framework does not focus on power minimization, it underscores the need for reproducible and structured comparison of architectural choices. Motivated by these insights, this work aims to design an AES architecture that is both area efficient and energy aware. By integrating hardware reuse techniques inspired by \cite{gunasekaran_aes256_virtex7} with selective clock gating strategies from recent low power research, the goal is to develop a scalable AES core that is optimized for modern FPGA and VLSI platforms.
+
+A central goal is to quantify the area and power tradeoff between the two architectural
+paradigms: the pipeline architecture~\cite{good_pipelined_aes_2005}, which provides high
+throughput through full round unrolling, and the FSM
+architecture~\cite{mcloone_fsm_aes_2003}, which achieves area efficiency through round
+hardware reuse. The two optimization phases applied equally to both architectures provide a
+controlled, reproducible comparison of these design tradeoffs.
+

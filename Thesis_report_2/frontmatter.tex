@@ -1,0 +1,149 @@
+% =========================================
+% frontmatter.tex — Declaration, Acks, Abstract, TOC/LoF/LoT
+% Call from main.tex AFTER the title page:
+%   \input{frontmatter}
+% =========================================
+
+% Roman numbering for front matter
+\pagenumbering{roman}
+
+% -------- Declaration --------
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Declaration}
+\thispagestyle{empty}
+
+\begin{center}
+  {\Large \textbf{DECLARATION}}
+\end{center}
+\vspace{0.8cm}
+
+I, \textbf{\AuthorName} (Roll No.\ \textbf{\RollNo}), hereby declare that the work presented
+in the report entitled \textbf{``\ThesisTitle''}, submitted in partial fulfilment of the
+requirements for the award of the degree of \textbf{Master of Technology (\Programme)} to
+\textbf{\InstituteName}, is an authentic record of my own work carried out during
+\textbf{\SessionDates} under the supervision of \textbf{\Supervisor} in the \textbf{\Department}.
+
+\vspace{0.6cm}
+This report has not been submitted for the award of any other degree or diploma of this or any
+other institute. All sources of information used in the report—texts, figures, tables, and data—
+have been duly acknowledged and cited.
+
+\vspace{1.2cm}
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+  \textbf{Date:} \rule{5cm}{0.4pt}\\[0.6cm]
+  \textbf{Place:} \InstituteCity
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \raggedleft
+  \textbf{\AuthorName}\\
+  Roll No.: \textbf{\RollNo}
+\end{minipage}
+
+% -------- Acknowledgements (airy layout) --------
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\thispagestyle{empty}
+
+\begin{center}
+  {\Large \textbf{ACKNOWLEDGEMENTS}}
+\end{center}
+\vspace{0.9cm}
+
+\begin{center}
+\begin{minipage}{0.92\textwidth}
+\begin{spacing}{1.2}
+{\large
+I express my deepest gratitude to my supervisor, \textbf{\Supervisor}, for
+his patient guidance, insightful discussions, and continuous encouragement
+throughout the course of this work. His clarity of thought and emphasis on
+first principles shaped both the problem formulation and the execution of this
+report.
+
+I am grateful to the faculty and staff of the \textbf{\Department} at
+\textbf{\InstituteName} for creating a supportive academic environment and for
+their timely help with laboratory facilities, software access, and logistics.
+I also thank the postgraduate office and administrative staff for their kind
+assistance with official procedures.
+
+My sincere thanks to my peers and labmates for the many helpful conversations,
+code reviews, and constructive feedback that improved the methodology and
+experiments presented here. I also acknowledge the broader open-source
+communities around \textit{RISC\mbox{-}V}, toolchains, simulators, and FPGA
+flows whose resources were invaluable.
+
+Above all, I am profoundly thankful to my family and friends for their
+unwavering support, patience, and motivation during the preparation of this
+report.
+}
+\end{spacing}
+\end{minipage}
+\end{center}
+
+\vspace{1.6cm}
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+  \textbf{Date:} \rule{5cm}{0.4pt}\\[0.6cm]
+  \textbf{Place:} \InstituteCity
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \raggedleft
+  \textbf{\AuthorName}\\
+  Roll No.: \textbf{\RollNo}
+\end{minipage}
+
+% -------- Abstract (compact, airy layout) --------
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Abstract}
+\thispagestyle{empty}
+
+\begin{center}
+  {\Large \textbf{ABSTRACT}}
+\end{center}
+\vspace{0.6cm}
+
+\begin{center}
+\begin{minipage}{0.92\textwidth}
+\begin{spacing}{1.2}
+{\large
+This thesis presents a dual-architecture hardware implementation study of the Advanced
+Encryption Standard (AES) on FPGA, targeting reproducible area and power baselines for
+AES-128, AES-192, and AES-256. Two architectures are implemented and characterized: a
+\textbf{full-pipeline} design that instantiates one copy of the round logic per pipeline
+stage, and a \textbf{finite state machine (FSM)} design that reuses a single round hardware
+block across all rounds under explicit state control. The pipeline architecture establishes a
+high-throughput, high-area reference point (AES-128 baseline: 38,766 LUTs), while the FSM
+architecture demonstrates area efficiency through hardware reuse (AES-128 baseline: 6,794
+LUTs), representing an 82\% reduction.
+
+Both architectures are subjected to two targeted optimization phases. \textbf{Phase~1}
+replaces the EXP3 and LN3 log-table GF($2^{8}$) multiplier in the MixColumns datapath
+with \textit{xtime} shift-and-XOR arithmetic, eliminating 512 lookup-table entries from
+every MixColumns instance. \textbf{Phase~2} introduces clock enable guards on the FSM
+state registers, suppressing unnecessary switching across all fields of the packed register
+struct when the FSM is idle. Together, the two phases provide a controlled,
+reproducible study of arithmetic simplification and power-aware gating across a
+representative pair of FPGA AES architectures.
+}
+\end{spacing}
+\end{minipage}
+\end{center}
+
+\vspace{0.8cm}
+\noindent\textbf{Keywords---} AES; FPGA; pipeline architecture; FSM architecture;
+GF($2^{8}$) arithmetic; xtime; clock enable gating; LUT utilization; hardware optimization;
+AES-128; AES-192; AES-256.
+
+% -------- TOC + Lists --------
+\cleardoublepage
+\tableofcontents
+
+\cleardoublepage
+\listoffigures
+
+\cleardoublepage
+\listoftables
+
+% Switch to Arabic numbering for main matter
+\cleardoublepage
+\pagenumbering{arabic}

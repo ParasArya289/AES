@@ -1,0 +1,1041 @@
+(SAIFILE
+  (SAIFVERSION "2.0")
+  (DIRECTION "backward")
+  (DESIGN "phase02_fsm")
+  (DATE "2026-05-03T16:16:29")
+  (VENDOR "OpenAI Codex")
+  (PROGRAM_NAME "sim/vcd_to_saif.py")
+  (VERSION "1.0")
+  (DIVIDER /)
+  (TIMESCALE 1 ps)
+  (DURATION 488)
+  (INSTANCE "TOP"
+    (NET
+      ("clk" (T0 244) (T1 244) (TX 0) (TZ 0) (TC 488))
+      ("rst" (T0 10) (T1 478) (TX 0) (TZ 0) (TC 1))
+    )
+    (INSTANCE "aes_const"
+      (NET
+        ("Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+        ("Nk" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+        ("Nr" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+        ("Nw" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+      )
+    )
+    (INSTANCE "top_phase02_fsm"
+      (NET
+        ("clk" (T0 244) (T1 244) (TX 0) (TZ 0) (TC 488))
+        ("rst" (T0 10) (T1 478) (TX 0) (TZ 0) (TC 1))
+      )
+      (INSTANCE "dut"
+        (NET
+          ("IDLE_CYCLES" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+          ("IDLE_INPUT_NOISE" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+          ("NUM_BURSTS" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+          ("TEST_DATA" (T0 29768) (T1 32696) (TX 0) (TZ 0) (TC 0))
+          ("TEST_KEY" (T0 27816) (T1 34648) (TX 0) (TZ 0) (TC 0))
+          ("aes_in" (T0 79982) (T1 46410) (TX 0) (TZ 0) (TC 15591))
+          ("aes_out" (T0 62202) (T1 750) (TX 0) (TZ 0) (TC 750))
+          ("burst_cnt" (T0 15296) (T1 320) (TX 0) (TZ 0) (TC 4))
+          ("clk" (T0 244) (T1 244) (TX 0) (TZ 0) (TC 488))
+          ("enable_pipeline" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+          ("enable_r" (T0 464) (T1 24) (TX 0) (TZ 0) (TC 18))
+          ("idle_cnt" (T0 14764) (T1 852) (TX 0) (TZ 0) (TC 238))
+          ("idle_noise_data" (T0 39900) (T1 22564) (TX 0) (TZ 0) (TC 11850))
+          ("idle_noise_key" (T0 29162) (T1 33302) (TX 0) (TZ 0) (TC 15821))
+          ("result" (T0 39034) (T1 23430) (TX 0) (TZ 0) (TC 55))
+          ("rst" (T0 10) (T1 478) (TX 0) (TZ 0) (TC 1))
+          ("state" (T0 15142) (T1 474) (TX 0) (TZ 0) (TC 23))
+        )
+        (INSTANCE "gen_fsm"
+          (INSTANCE "aes_state_dut"
+            (NET
+              ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+              ("aes_const_Nk" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+              ("aes_const_Nr" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+              ("aes_in" (T0 79982) (T1 46410) (TX 0) (TZ 0) (TC 15591))
+              ("aes_out" (T0 62202) (T1 750) (TX 0) (TZ 0) (TC 750))
+              ("cipher_array" (T0 30812) (T1 31652) (TX 0) (TZ 0) (TC 9098))
+              ("cipher_data" (T0 30812) (T1 31652) (TX 0) (TZ 0) (TC 9098))
+              ("cipher_enable" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+              ("cipher_ready" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+              ("clk" (T0 244) (T1 244) (TX 0) (TZ 0) (TC 488))
+              ("data_array" (T0 38452) (T1 24012) (TX 0) (TZ 0) (TC 6941))
+              ("ibox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+              ("icipher_array" (T0 32618) (T1 29846) (TX 0) (TZ 0) (TC 9152))
+              ("icipher_data" (T0 32618) (T1 29846) (TX 0) (TZ 0) (TC 9152))
+              ("icipher_enable" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+              ("icipher_ready" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+              ("kexp" (T0 350534) (T1 336570) (TX 0) (TZ 0) (TC 719))
+              ("kexp_enable" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+              ("kexp_ready" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+              ("key_array" (T0 40402) (T1 22062) (TX 0) (TZ 0) (TC 8608))
+              ("rcon" (T0 44408) (T1 18056) (TX 0) (TZ 0) (TC 0))
+              ("rst" (T0 10) (T1 478) (TX 0) (TZ 0) (TC 1))
+              ("sbox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+            )
+            (INSTANCE "aes_array_comp"
+              (NET
+                ("IBox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+                ("RCon" (T0 44408) (T1 18056) (TX 0) (TZ 0) (TC 0))
+                ("SBox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+                ("ibox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+                ("rcon" (T0 44408) (T1 18056) (TX 0) (TZ 0) (TC 0))
+                ("sbox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+              )
+            )
+            (INSTANCE "aes_cdata_cipher_comp"
+              (NET
+                ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                ("data_in" (T0 30812) (T1 31652) (TX 0) (TZ 0) (TC 9098))
+                ("data_out" (T0 30812) (T1 31652) (TX 0) (TZ 0) (TC 9098))
+              )
+              (INSTANCE "genblk1[0]"
+                (NET
+                  ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[1]"
+                (NET
+                  ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[2]"
+                (NET
+                  ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[3]"
+                (NET
+                  ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+            )
+            (INSTANCE "aes_cdata_icipher_comp"
+              (NET
+                ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                ("data_in" (T0 32618) (T1 29846) (TX 0) (TZ 0) (TC 9152))
+                ("data_out" (T0 32618) (T1 29846) (TX 0) (TZ 0) (TC 9152))
+              )
+              (INSTANCE "genblk1[0]"
+                (NET
+                  ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[1]"
+                (NET
+                  ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[2]"
+                (NET
+                  ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[3]"
+                (NET
+                  ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+            )
+            (INSTANCE "aes_cipher_state_comp"
+              (NET
+                ("Data_in" (T0 38452) (T1 24012) (TX 0) (TZ 0) (TC 6941))
+                ("Data_out" (T0 30812) (T1 31652) (TX 0) (TZ 0) (TC 9098))
+                ("Enable" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+                ("Index" (T0 1850) (T1 102) (TX 0) (TZ 0) (TC 60))
+                ("KExp" (T0 350534) (T1 336570) (TX 0) (TZ 0) (TC 719))
+                ("Ready_out" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+                ("SBox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+                ("State_A_in" (T0 38410) (T1 24054) (TX 0) (TZ 0) (TC 9047))
+                ("State_A_out" (T0 30692) (T1 31772) (TX 0) (TZ 0) (TC 9160))
+                ("State_B_in" (T0 58696) (T1 3768) (TX 0) (TZ 0) (TC 2166))
+                ("State_B_out" (T0 31406) (T1 31058) (TX 0) (TZ 0) (TC 2094))
+                ("State_M_in" (T0 59194) (T1 3270) (TX 0) (TZ 0) (TC 1902))
+                ("State_M_out" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 1938))
+                ("State_N" (T0 30812) (T1 31652) (TX 0) (TZ 0) (TC 9098))
+                ("State_P" (T0 30692) (T1 31772) (TX 0) (TZ 0) (TC 9160))
+                ("State_R_in" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                ("State_R_out" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                ("aes_const_Nr" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                ("clk" (T0 244) (T1 244) (TX 0) (TZ 0) (TC 488))
+                ("init_reg" (T0 2440) (T1 0) (TX 0) (TZ 0) (TC 0))
+                ("r" (T0 2332) (T1 108) (TX 0) (TZ 0) (TC 66))
+                ("rin" (T0 2332) (T1 108) (TX 0) (TZ 0) (TC 66))
+                ("rst" (T0 10) (T1 478) (TX 0) (TZ 0) (TC 1))
+                ("v" (T0 2332) (T1 108) (TX 0) (TZ 0) (TC 66))
+              )
+              (INSTANCE "aes_arkey_comp"
+                (NET
+                  ("Index" (T0 1850) (T1 102) (TX 0) (TZ 0) (TC 60))
+                  ("KExp" (T0 350534) (T1 336570) (TX 0) (TZ 0) (TC 719))
+                  ("State_in" (T0 38410) (T1 24054) (TX 0) (TZ 0) (TC 9047))
+                  ("State_out" (T0 30692) (T1 31772) (TX 0) (TZ 0) (TC 9160))
+                  ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  ("aes_const_Nr" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                )
+                (INSTANCE "genblk1[0]"
+                  (NET
+                    ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[1]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[2]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[3]"
+                  (NET
+                    ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+              )
+              (INSTANCE "aes_mcol_comp"
+                (NET
+                  ("State_in" (T0 59194) (T1 3270) (TX 0) (TZ 0) (TC 1902))
+                  ("State_out" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 1938))
+                  ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  ("xt2[0]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 132))
+                  ("xt2[10]" (T0 3718) (T1 186) (TX 0) (TZ 0) (TC 108))
+                  ("xt2[11]" (T0 3712) (T1 192) (TX 0) (TZ 0) (TC 126))
+                  ("xt2[12]" (T0 3694) (T1 210) (TX 0) (TZ 0) (TC 126))
+                  ("xt2[13]" (T0 3694) (T1 210) (TX 0) (TZ 0) (TC 126))
+                  ("xt2[14]" (T0 3736) (T1 168) (TX 0) (TZ 0) (TC 102))
+                  ("xt2[15]" (T0 3664) (T1 240) (TX 0) (TZ 0) (TC 132))
+                  ("xt2[1]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 114))
+                  ("xt2[2]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 150))
+                  ("xt2[3]" (T0 3694) (T1 210) (TX 0) (TZ 0) (TC 90))
+                  ("xt2[4]" (T0 3700) (T1 204) (TX 0) (TZ 0) (TC 120))
+                  ("xt2[5]" (T0 3664) (T1 240) (TX 0) (TZ 0) (TC 150))
+                  ("xt2[6]" (T0 3706) (T1 198) (TX 0) (TZ 0) (TC 126))
+                  ("xt2[7]" (T0 3676) (T1 228) (TX 0) (TZ 0) (TC 114))
+                  ("xt2[8]" (T0 3700) (T1 204) (TX 0) (TZ 0) (TC 120))
+                  ("xt2[9]" (T0 3658) (T1 246) (TX 0) (TZ 0) (TC 126))
+                )
+                (INSTANCE "sv2v_autoblock_1"
+                  (NET
+                    ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+              )
+              (INSTANCE "aes_sbyte_comp"
+                (NET
+                  ("SBox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+                  ("State_in" (T0 58696) (T1 3768) (TX 0) (TZ 0) (TC 2166))
+                  ("State_out" (T0 31406) (T1 31058) (TX 0) (TZ 0) (TC 2094))
+                  ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+                (INSTANCE "genblk1[0]"
+                  (NET
+                    ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[1]"
+                  (NET
+                    ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[2]"
+                  (NET
+                    ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[3]"
+                  (NET
+                    ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+              )
+              (INSTANCE "aes_srow_comp"
+                (NET
+                  ("C[0]" (T0 976) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  ("C[1]" (T0 976) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  ("C[2]" (T0 488) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  ("State_in" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                  ("State_out" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                  ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+                (INSTANCE "genblk1[0]"
+                  (NET
+                    ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+                (INSTANCE "genblk1[1]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+                (INSTANCE "genblk1[2]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+                (INSTANCE "genblk1[3]"
+                  (NET
+                    ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+                (INSTANCE "genblk2[0]"
+                  (NET
+                    ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk2[1]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk2[2]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk2[3]"
+                  (NET
+                    ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+              )
+            )
+            (INSTANCE "aes_icipher_state_comp"
+              (NET
+                ("Data_in" (T0 38452) (T1 24012) (TX 0) (TZ 0) (TC 6941))
+                ("Data_out" (T0 32618) (T1 29846) (TX 0) (TZ 0) (TC 9152))
+                ("Enable" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+                ("IBox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+                ("Index" (T0 1010) (T1 942) (TX 0) (TZ 0) (TC 62))
+                ("KExp" (T0 350534) (T1 336570) (TX 0) (TZ 0) (TC 719))
+                ("Ready_out" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+                ("State_A_in" (T0 37888) (T1 24576) (TX 0) (TZ 0) (TC 9137))
+                ("State_A_out" (T0 32106) (T1 30358) (TX 0) (TZ 0) (TC 9160))
+                ("State_B_in" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                ("State_B_out" (T0 38152) (T1 24312) (TX 0) (TZ 0) (TC 2184))
+                ("State_M_in" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 1938))
+                ("State_M_out" (T0 59194) (T1 3270) (TX 0) (TZ 0) (TC 1902))
+                ("State_N" (T0 32618) (T1 29846) (TX 0) (TZ 0) (TC 9152))
+                ("State_P" (T0 32502) (T1 29962) (TX 0) (TZ 0) (TC 9166))
+                ("State_R_in" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                ("State_R_out" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                ("aes_const_Nr" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                ("clk" (T0 244) (T1 244) (TX 0) (TZ 0) (TC 488))
+                ("init_reg" (T0 1464) (T1 976) (TX 0) (TZ 0) (TC 0))
+                ("r" (T0 1492) (T1 948) (TX 0) (TZ 0) (TC 68))
+                ("rin" (T0 1486) (T1 954) (TX 0) (TZ 0) (TC 67))
+                ("rst" (T0 10) (T1 478) (TX 0) (TZ 0) (TC 1))
+                ("v" (T0 1486) (T1 954) (TX 0) (TZ 0) (TC 67))
+              )
+              (INSTANCE "aes_arkey_comp"
+                (NET
+                  ("Index" (T0 1010) (T1 942) (TX 0) (TZ 0) (TC 62))
+                  ("KExp" (T0 350534) (T1 336570) (TX 0) (TZ 0) (TC 719))
+                  ("State_in" (T0 37888) (T1 24576) (TX 0) (TZ 0) (TC 9137))
+                  ("State_out" (T0 32106) (T1 30358) (TX 0) (TZ 0) (TC 9160))
+                  ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  ("aes_const_Nr" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                )
+                (INSTANCE "genblk1[0]"
+                  (NET
+                    ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[1]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[2]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[3]"
+                  (NET
+                    ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+              )
+              (INSTANCE "aes_imcol_comp"
+                (NET
+                  ("State_in" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 1938))
+                  ("State_out" (T0 59194) (T1 3270) (TX 0) (TZ 0) (TC 1902))
+                  ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  ("xt2[0]" (T0 3658) (T1 246) (TX 0) (TZ 0) (TC 120))
+                  ("xt2[10]" (T0 3658) (T1 246) (TX 0) (TZ 0) (TC 114))
+                  ("xt2[11]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 120))
+                  ("xt2[12]" (T0 3694) (T1 210) (TX 0) (TZ 0) (TC 120))
+                  ("xt2[13]" (T0 3688) (T1 216) (TX 0) (TZ 0) (TC 114))
+                  ("xt2[14]" (T0 3658) (T1 246) (TX 0) (TZ 0) (TC 126))
+                  ("xt2[15]" (T0 3712) (T1 192) (TX 0) (TZ 0) (TC 96))
+                  ("xt2[1]" (T0 3658) (T1 246) (TX 0) (TZ 0) (TC 114))
+                  ("xt2[2]" (T0 3700) (T1 204) (TX 0) (TZ 0) (TC 126))
+                  ("xt2[3]" (T0 3676) (T1 228) (TX 0) (TZ 0) (TC 114))
+                  ("xt2[4]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 138))
+                  ("xt2[5]" (T0 3712) (T1 192) (TX 0) (TZ 0) (TC 126))
+                  ("xt2[6]" (T0 3688) (T1 216) (TX 0) (TZ 0) (TC 114))
+                  ("xt2[7]" (T0 3688) (T1 216) (TX 0) (TZ 0) (TC 126))
+                  ("xt2[8]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 114))
+                  ("xt2[9]" (T0 3670) (T1 234) (TX 0) (TZ 0) (TC 132))
+                  ("xt4[0]" (T0 3664) (T1 240) (TX 0) (TZ 0) (TC 108))
+                  ("xt4[10]" (T0 3658) (T1 246) (TX 0) (TZ 0) (TC 102))
+                  ("xt4[11]" (T0 3730) (T1 174) (TX 0) (TZ 0) (TC 108))
+                  ("xt4[12]" (T0 3694) (T1 210) (TX 0) (TZ 0) (TC 126))
+                  ("xt4[13]" (T0 3694) (T1 210) (TX 0) (TZ 0) (TC 108))
+                  ("xt4[14]" (T0 3676) (T1 228) (TX 0) (TZ 0) (TC 108))
+                  ("xt4[15]" (T0 3730) (T1 174) (TX 0) (TZ 0) (TC 114))
+                  ("xt4[1]" (T0 3640) (T1 264) (TX 0) (TZ 0) (TC 114))
+                  ("xt4[2]" (T0 3664) (T1 240) (TX 0) (TZ 0) (TC 138))
+                  ("xt4[3]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 108))
+                  ("xt4[4]" (T0 3700) (T1 204) (TX 0) (TZ 0) (TC 114))
+                  ("xt4[5]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 126))
+                  ("xt4[6]" (T0 3694) (T1 210) (TX 0) (TZ 0) (TC 102))
+                  ("xt4[7]" (T0 3712) (T1 192) (TX 0) (TZ 0) (TC 126))
+                  ("xt4[8]" (T0 3676) (T1 228) (TX 0) (TZ 0) (TC 114))
+                  ("xt4[9]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 138))
+                  ("xt8[0]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 114))
+                  ("xt8[10]" (T0 3700) (T1 204) (TX 0) (TZ 0) (TC 102))
+                  ("xt8[11]" (T0 3718) (T1 186) (TX 0) (TZ 0) (TC 114))
+                  ("xt8[12]" (T0 3658) (T1 246) (TX 0) (TZ 0) (TC 126))
+                  ("xt8[13]" (T0 3694) (T1 210) (TX 0) (TZ 0) (TC 120))
+                  ("xt8[14]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 102))
+                  ("xt8[15]" (T0 3706) (T1 198) (TX 0) (TZ 0) (TC 126))
+                  ("xt8[1]" (T0 3682) (T1 222) (TX 0) (TZ 0) (TC 114))
+                  ("xt8[2]" (T0 3688) (T1 216) (TX 0) (TZ 0) (TC 138))
+                  ("xt8[3]" (T0 3688) (T1 216) (TX 0) (TZ 0) (TC 126))
+                  ("xt8[4]" (T0 3700) (T1 204) (TX 0) (TZ 0) (TC 102))
+                  ("xt8[5]" (T0 3712) (T1 192) (TX 0) (TZ 0) (TC 102))
+                  ("xt8[6]" (T0 3676) (T1 228) (TX 0) (TZ 0) (TC 120))
+                  ("xt8[7]" (T0 3688) (T1 216) (TX 0) (TZ 0) (TC 138))
+                  ("xt8[8]" (T0 3694) (T1 210) (TX 0) (TZ 0) (TC 126))
+                  ("xt8[9]" (T0 3664) (T1 240) (TX 0) (TZ 0) (TC 138))
+                )
+                (INSTANCE "sv2v_autoblock_1"
+                  (NET
+                    ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+              )
+              (INSTANCE "aes_isbyte_comp"
+                (NET
+                  ("IBox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+                  ("State_in" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                  ("State_out" (T0 38152) (T1 24312) (TX 0) (TZ 0) (TC 2184))
+                  ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+                (INSTANCE "genblk1[0]"
+                  (NET
+                    ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[1]"
+                  (NET
+                    ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[2]"
+                  (NET
+                    ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk1[3]"
+                  (NET
+                    ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[0]"
+                    (NET
+                      ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+              )
+              (INSTANCE "aes_isrow_comp"
+                (NET
+                  ("C[0]" (T0 976) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  ("C[1]" (T0 976) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  ("C[2]" (T0 488) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  ("State_in" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                  ("State_out" (T0 58798) (T1 3666) (TX 0) (TZ 0) (TC 2112))
+                  ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+                (INSTANCE "genblk1[0]"
+                  (NET
+                    ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+                (INSTANCE "genblk1[1]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+                (INSTANCE "genblk1[2]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+                (INSTANCE "genblk1[3]"
+                  (NET
+                    ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  )
+                )
+                (INSTANCE "genblk2[0]"
+                  (NET
+                    ("j" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk2[1]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk2[2]"
+                  (NET
+                    ("j" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+                (INSTANCE "genblk2[3]"
+                  (NET
+                    ("j" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                  )
+                  (INSTANCE "genblk1[1]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[2]"
+                    (NET
+                      ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                  (INSTANCE "genblk1[3]"
+                    (NET
+                      ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                    )
+                  )
+                )
+              )
+            )
+            (INSTANCE "aes_kexp_state_comp"
+              (NET
+                ("Enable" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+                ("KExp" (T0 350534) (T1 336570) (TX 0) (TZ 0) (TC 719))
+                ("KExp_N" (T0 35190) (T1 27274) (TX 0) (TZ 0) (TC 2362))
+                ("KExp_P" (T0 35078) (T1 27386) (TX 0) (TZ 0) (TC 2362))
+                ("KExp_R" (T0 350534) (T1 336570) (TX 0) (TZ 0) (TC 719))
+                ("Key" (T0 40402) (T1 22062) (TX 0) (TZ 0) (TC 8608))
+                ("LENGTH" (T0 14152) (T1 1464) (TX 0) (TZ 0) (TC 0))
+                ("RCon" (T0 44408) (T1 18056) (TX 0) (TZ 0) (TC 0))
+                ("Ready_out" (T0 482) (T1 6) (TX 0) (TZ 0) (TC 6))
+                ("SBox" (T0 499712) (T1 499712) (TX 0) (TZ 0) (TC 0))
+                ("WIDTH" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                ("aes_const_Nk" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                ("aes_const_Nr" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                ("clk" (T0 244) (T1 244) (TX 0) (TZ 0) (TC 488))
+                ("init_reg" (T0 5856) (T1 0) (TX 0) (TZ 0) (TC 0))
+                ("r" (T0 5120) (T1 736) (TX 0) (TZ 0) (TC 151))
+                ("rin" (T0 5110) (T1 746) (TX 0) (TZ 0) (TC 150))
+                ("rst" (T0 10) (T1 478) (TX 0) (TZ 0) (TC 1))
+                ("v" (T0 5110) (T1 746) (TX 0) (TZ 0) (TC 150))
+              )
+              (INSTANCE "sv2v_autoblock_1"
+                (NET
+                  ("i" (T0 15138) (T1 478) (TX 0) (TZ 0) (TC 1))
+                )
+              )
+              (INSTANCE "sv2v_autoblock_2"
+                (NET
+                  ("i" (T0 15140) (T1 476) (TX 0) (TZ 0) (TC 1))
+                )
+              )
+              (INSTANCE "sv2v_autoblock_3"
+                (NET
+                  ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+            )
+            (INSTANCE "aes_xdata_comp"
+              (NET
+                ("aes_const_Nb" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                ("data_in" (T0 38452) (T1 24012) (TX 0) (TZ 0) (TC 6941))
+                ("data_out" (T0 38452) (T1 24012) (TX 0) (TZ 0) (TC 6941))
+              )
+              (INSTANCE "genblk1[0]"
+                (NET
+                  ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[1]"
+                (NET
+                  ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[2]"
+                (NET
+                  ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[3]"
+                (NET
+                  ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+            )
+            (INSTANCE "aes_xkey_comp"
+              (NET
+                ("aes_const_Nk" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                ("key_in" (T0 40402) (T1 22062) (TX 0) (TZ 0) (TC 8608))
+                ("key_out" (T0 40402) (T1 22062) (TX 0) (TZ 0) (TC 8608))
+              )
+              (INSTANCE "genblk1[0]"
+                (NET
+                  ("i" (T0 15616) (T1 0) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[1]"
+                (NET
+                  ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[2]"
+                (NET
+                  ("i" (T0 15128) (T1 488) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+              (INSTANCE "genblk1[3]"
+                (NET
+                  ("i" (T0 14640) (T1 976) (TX 0) (TZ 0) (TC 0))
+                )
+              )
+            )
+          )
+        )
+      )
+    )
+  )
+)

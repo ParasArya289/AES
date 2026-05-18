@@ -1,0 +1,324 @@
+% ================================
+% ABV-IIITM Thesis Title Page
+% Compile with: pdflatex
+% ================================
+\documentclass[12pt,a4paper]{report}
+
+% --- Layout & graphics
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{tikz}
+% figures & subfigures
+\usepackage{caption}
+\usepackage{subcaption}   % <-- defines subfigure
+\usepackage{placeins}     % optional:
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{placeins}
+\usepackage{pdflscape} % for the landscape waveform page
+
+% Tighter but clean float spacing + smaller captions
+\captionsetup[figure]{font=small,labelfont=bf}
+\captionsetup[sub]{font=small}
+\setlength{\textfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\floatsep}{10pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+
+\FloatBarrier
+
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.misc,fit,automata}
+\usepackage{booktabs}   % optional, for nicer tables
+
+\usepackage[backend=biber,style=ieee,sorting=none,defernumbers=true]{biblatex}
+\addbibresource{refs.bib}
+
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+
+
+% --- Toggle logo on/off
+\newif\ifuseLogo
+\useLogotrue
+\newcommand{\LogoPath}{Logo.jpg}
+
+% --------- EDIT THESE FIELDS ---------
+\newcommand{\ThesisTitle}{Design and Optimization of AES-256 Architecture
+with Clock-Gating}
+\newcommand{\Programme}{M.Tech.\ (\textit{ICD\&T})}
+\newcommand{\Department}{Department of Electrical \& Electronics Engineering}
+\newcommand{\AuthorName}{Paras Arya}
+\newcommand{\RollNo}{2024ICD-006}
+\newcommand{\Supervisor}{Dr.\ Alok Kumar Kamal}
+% \newcommand{\ExternalSupervisor}{Revanth Thimmappa}
+% \newcommand{\ExternalSupervisorDesignation}{Senior Software Engineer at Rakuten India}
+\newcommand{\InstituteName}{ABV--Indian Institute of Information Technology \& Management, Gwalior}
+\newcommand{\InstituteCity}{Gwalior, India}
+\newcommand{\SessionDates}{December~10, 2025}
+% -------------------------------------
+
+% QoL
+\usepackage{microtype}
+\usepackage{csquotes}
+
+% Bibliography
+\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+\addbibresource{refs.bib}
+
+% Hyperlinks
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle   = {Accelerating the Development Lifecycle through Mock-Server-Based Integration Testing of Systems Under Test},
+  pdfauthor  = {Paras Arya},
+  pdfsubject = {M.Tech Report},
+  pdfcreator = {LaTeX}
+}
+
+% No page number on title page
+\pagestyle{empty}
+
+\begin{document}
+
+% ---------- TITLE PAGE ----------
+\begin{titlepage}
+  \centering
+  {\LARGE\bfseries \ThesisTitle \par}
+  \vspace{1.2cm}
+
+  {\large A report submitted in \textit{partial fulfilment} of the requirements\\
+  for the award of the degree of\\[0.6ex]
+  \textbf{Master of Technology (\Programme)}\par}
+  \vspace{1.2cm}
+
+  {\large \textbf{by}}\par
+  \vspace{0.35cm}
+  {\Large \textbf{\AuthorName}}\par
+  \vspace{0.15cm}
+  {\large Roll No.\ \textbf{\RollNo}}\par
+  \vspace{1.2cm}
+
+  {\large \textbf{Under the supervision of}}\par
+  \vspace{0.35cm}
+  {\large \textbf{\Supervisor}}\par
+  % {\large \textbf{and}}\\[0.2cm]
+  % {\large \textbf{\ExternalSupervisor}}\par
+  % {\scriptsize \textit{\ExternalSupervisorDesignation}}\par
+  \vspace{1.2cm}
+
+  {\large \Department}\par
+  \vspace{0.4cm}
+
+  \ifuseLogo
+    \includegraphics[width=2.5cm]{\LogoPath}\par
+    \vspace{0.6cm}
+  \fi
+
+  {\large \InstituteName}\par
+  \vspace{0.2cm}
+  {\large \InstituteCity}\par
+  \vspace{0.8cm}
+
+  {\large \SessionDates}\par
+
+  \vfill
+\end{titlepage}
+
+% ---------- FRONT MATTER (roman) ----------
+\pagenumbering{roman}
+\pagestyle{plain}
+
+% --- Declaration ---
+\cleardoublepage
+\addcontentsline{toc}{section}{Declaration}   % article -> section
+\thispagestyle{empty}
+\begin{center}
+  {\Large \textbf{DECLARATION}}
+\end{center}
+\vspace{0.8cm}
+
+I, \textbf{\AuthorName} (Roll No.\ \textbf{\RollNo}), hereby declare that the work presented
+in the report entitled \textbf{``\ThesisTitle''}, submitted in partial fulfilment of the
+requirements for the award of the degree of \textbf{Master of Technology (\Programme)} to
+\textbf{\InstituteName}, is an authentic record of my own work carried out during
+\textbf{\SessionDates} under the supervision of \textbf{\Supervisor} in the \textbf{\Department}.
+
+\vspace{0.6cm}
+This report has not been submitted for the award of any other degree or diploma of this or any
+other institute. All sources of information used in the report—texts, figures, tables, and data—
+have been duly acknowledged and cited.
+
+\vspace{1.2cm}
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+  \textbf{Date:} \rule{5cm}{0.4pt}\\[0.6cm]
+  \textbf{Place:} \rule{4.8cm}{0.4pt}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \raggedleft
+  \textbf{Signature of the Candidate}\\[0.6cm]
+  \rule{6cm}{0.4pt}\\[-0.1cm]
+  \textbf{\AuthorName}\\
+  Roll No.: \textbf{\RollNo}\\
+  Programme: \Programme
+\end{minipage}
+
+\vspace{1.6cm}
+\noindent
+This is to certify that the above declaration by the candidate is correct to the best of my knowledge.
+
+\vspace{1.2cm}
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+  \textbf{Date:} \rule{5cm}{0.4pt}\\[0.6cm]
+  \textbf{Place:} \rule{4.8cm}{0.4pt}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \raggedleft
+  \textbf{Signature of the Supervisor}\\[0.6cm]
+  \rule{6cm}{0.4pt}\\[-0.1cm]
+  \textbf{\Supervisor}
+\end{minipage}
+
+% --- Acknowledgements (airy) ---
+\cleardoublepage
+\addcontentsline{toc}{section}{Acknowledgements}
+\thispagestyle{empty}
+\begin{center}
+  {\Large \textbf{ACKNOWLEDGEMENTS}}
+\end{center}
+\vspace{0.9cm}
+
+\begin{center}
+\begin{minipage}{0.92\textwidth}
+\begin{spacing}{1.2}
+{\large
+I express my deepest gratitude to my supervisor, \textbf{\Supervisor}, for
+his patient guidance, insightful discussions, and continuous encouragement
+throughout the course of this work. His clarity of thought and emphasis on
+first principles shaped both the problem formulation and the execution of this
+report. I am grateful to the faculty and staff of the \textbf{\Department} at
+\textbf{\InstituteName} for creating a supportive academic environment and for their timely help with laboratory facilities, software access, and logistics. I also thank the postgraduate office and administrative staff for their kind assistance with official procedures. My sincere thanks to my peers and labmates for the many helpful conversations, code reviews, and constructive feedback that improved the methodology and experiments presented here. Above all, I am profoundly thankful to my family and friends for their unwavering support, patience, and motivation during the preparation of this
+report.
+}
+\end{spacing}
+\end{minipage}
+\end{center}
+
+\vspace{1.8cm}
+\noindent
+\begin{minipage}[t]{0.48\textwidth}
+  \textbf{Date:} \rule{5cm}{0.4pt}\\[0.6cm]
+  \textbf{Place:} \InstituteCity
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\textwidth}
+  \raggedleft
+  \textbf{\AuthorName}\\
+  Roll No.: \textbf{\RollNo}
+\end{minipage}
+
+% --- Abstract (compact, airy) ---
+\cleardoublepage
+\addcontentsline{toc}{section}{Abstract}
+\thispagestyle{empty}
+\begin{center}
+  {\Large \textbf{ABSTRACT}}
+\end{center}
+\vspace{0.6cm}
+
+\begin{center}
+\begin{minipage}{0.92\textwidth}
+\begin{spacing}{1.2}
+{\large
+\section*{Abstract}
+
+This work presents the design, implementation, and optimization of AES 256 cryptographic architectures. The project begins by developing fully functional conventional AES encryption and decryption cores and validating them against standardized test vectors to ensure correctness for all key sizes. Building upon this foundation, an optimized architecture from prior research is studied and implemented. This architecture employs shared S Box hardware, conditional MixColumns bypassing, and a word serial datapath that together reduce area and computational redundancy.
+
+To further improve energy efficiency, a clock gated low power extension is proposed. The method focuses on reducing switching activity in power intensive components including SubBytes, MixColumns, and the KeySchedule unit. Fine grained clock enables are used to deactivate unused logic without altering functional behavior. Insights from recent literature show that such gating strategies can reduce dynamic power while maintaining throughput.
+
+The combined architecture provides a resource efficient and scalable solution for hardware based cryptographic acceleration. The contributions of this work include a complete and verified AES 128, AES 192, and AES 256 implementation, an optimized architecture with reduced area cost, and a clock gated extension aimed at lowering dynamic power. These results support the development of secure and energy efficient AES systems for VLSI and embedded applications.
+
+}
+\end{spacing}
+\end{minipage}
+\end{center}
+
+\vspace{0.8cm}
+\noindent\textbf{Keywords} AES architecture; clock gating; low power design; SubBytes; MixColumns; KeySchedule;
+
+% \clearpage
+% \section*{Abbreviations}\addcontentsline{toc}{section}{Abbreviations}
+
+% \begin{center}
+% \begin{minipage}{0.92\textwidth}
+% \begin{spacing}{1.15}
+% \begin{tabularx}{\textwidth}{@{}lL@{}}
+% \textbf{AMS} & Account Management System \\
+% \textbf{API} & Application Programming Interface \\
+% \textbf{CI/CD} & Continuous Integration / Continuous Deployment \\
+% \textbf{HTTP} & Hypertext Transfer Protocol \\
+% \textbf{JSON} & JavaScript Object Notation \\
+% \textbf{REST} & Representational State Transfer \\
+% \textbf{SUT} & System Under Test \\
+% \textbf{JAR} & Java ARchive \\
+% \textbf{JUnit} & Java Unit Testing Framework \\
+% \textbf{IDE} & Integrated Development Environment \\
+% \textbf{UI} & User Interface \\
+% \textbf{RMS} & Rakuten Management Services (contextual) \\
+% \textbf{KYC} & Know Your Customer \\
+% \textbf{PoC} & Proof of Concept \\
+% \textbf{VM} & Virtual Machine \\
+% \textbf{QA} & Quality Assurance \\
+% \textbf{YAML} & Yet Another Markup Language \\
+% \textbf{URL} & Uniform Resource Locator \\
+% \textbf{CI} & Continuous Integration \\
+% \textbf{CD} & Continuous Deployment \\
+% \textbf{API Mock} & Simulated API endpoint for testing \\
+
+% \end{tabularx}
+% \end{spacing}
+% \end{minipage}
+% \end{center}
+
+
+% --- TOC and Lists ---
+\cleardoublepage
+\tableofcontents
+\cleardoublepage
+\listoffigures
+\cleardoublepage
+% \listoftables
+
+% ---------- MAIN MATTER (arabic) ----------
+\cleardoublepage
+\pagenumbering{arabic}
+
+% (Your chapters/sections start here)
+\input{chapters/ch1}
+\input{chapters/ch2}
+\input{chapters/ch3}
+\input{chapters/ch4}
+\input{chapters/ch5}
+\input{chapters/ch6}
+\input{chapters/ch7}
+
+
+
+
+\begin{refcontext}[sorting=none]   % local context, ignores citation order
+\nocite{vdat2024_fivestage_pipeline,
+        zhang2021_three_stage_riscv,
+        poli2022_riscv_fpga_msn,
+        kumar2024_custom_instr_heart,
+        cui2023_riscv_extensions_survey}
+
+\printbibliography[heading=bibintoc,title={References},resetnumbers=true]
+\end{refcontext}
+
+
+
+\end{document}
